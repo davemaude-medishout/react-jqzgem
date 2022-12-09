@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
+import DynamicFeedOutlinedIcon from '@mui/icons-material/DynamicFeedOutlined';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
@@ -59,7 +60,7 @@ const BulkUpdateIcon = () => {
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
-        d="M4.48298 16.4511C3.46037 12.9541 5.46623 9.29029 8.9632 8.26768C11.7095 7.46459 14.5586 8.52928 16.1507 10.7171C15.6136 10.8621 14.7863 11.085 13.5148 11.4273C13.1398 11.5277 12.8598 11.8407 12.8023 12.2248C12.7447 12.6088 12.9199 12.9903 13.2483 13.197L18.5122 16.5017C18.9932 16.804 19.6291 16.6336 19.8945 16.1314L22.8009 10.6374C22.982 10.2945 22.9429 9.87646 22.7011 9.57245C22.459 9.2686 22.06 9.13757 21.6853 9.23798C20.6276 9.52013 19.8135 9.7372 19.1872 9.90411C17.0517 6.08836 12.4966 4.10876 8.12118 5.38827C3.03396 6.87591 0.115921 12.2059 1.60357 17.2931C1.83608 18.0883 2.66916 18.5443 3.46428 18.3118C4.25941 18.0793 4.7155 17.2462 4.48298 16.4511Z"
+        d="M19.1169 9.88399C16.9642 6.08357 12.3718 4.11249 7.96166 5.38668C2.83334 6.86838 -0.10826 12.177 1.3914 17.2439C1.55625 17.8009 2.14689 18.1204 2.71063 17.9575C3.27437 17.7946 3.59773 17.2111 3.43287 16.6541C2.26292 12.7012 4.5578 8.55963 8.55864 7.40369C11.7014 6.49568 14.9606 7.7001 16.7816 10.1726L17.2363 10.7899L16.4902 10.9889C15.9189 11.1413 15.0384 11.3757 13.686 11.7353C13.4912 11.7869 13.3463 11.9475 13.3165 12.1438C13.2867 12.3407 13.3778 12.5366 13.5483 12.6428L19.1461 16.115C19.3956 16.2699 19.7254 16.1824 19.8631 15.925L22.9538 10.1526C22.9538 10.1525 22.9538 10.1525 22.9538 10.1525C23.0616 9.95117 22.9538 9.6709 22.9018 9.60601L22.9018 9.60598C22.7763 9.4506 22.5695 9.38352 22.3752 9.43495L21.272 9.72569L21.272 9.72572L20.345 9.96994L20.3449 9.96993L20.3449 9.96996L19.7178 10.1351L19.3186 10.2402L19.1169 9.88399Z"
         fill="currentColor"
       />
     </svg>
@@ -203,20 +204,20 @@ const SharpSmartStockHistoryIcon = () => {
 };
 
 const icons = {
-  'Shout feed': <StarRoundedIcon />,
-  'Send shout': <MediIcon />,
+  Feed: <DynamicFeedOutlinedIcon />,
+  Shout: <MediIcon />,
   History: <HistoryIcon />,
   Inbox: <ArchiveOutlinedIcon />,
   'Notification settings': <NotificationsOffOutlinedIcon />,
   'Users list': <SupervisorAccountOutlinedIcon />,
-  'Shout reports': <FileOpenOutlinedIcon />,
-  'Collection reports': <CollectionReportsIcon />,
+  Reports: <FileOpenOutlinedIcon />,
+  'Scan&Go reports': <CollectionReportsIcon />,
   'SharpSmart reports': <SharpSmartReportsIcon />,
   'Faulty scopes': <FaultyScopeIcon />,
-  'Scan&Go Collections': <CollectionsIcon />,
+  'Scan&Go dashboard': <CollectionsIcon />,
   'SharpSmart dashboard': <SharpSmartDashboardIcon />,
-  'Bin stock': <SharpSmartStockIcon />,
-  'Bin stock history': <SharpSmartStockHistoryIcon />,
+  'SharpSmart stock': <SharpSmartStockIcon />,
+  'SharpSmart stock history': <SharpSmartStockHistoryIcon />,
   'Bulk update': <BulkUpdateIcon />,
 };
 
@@ -396,8 +397,9 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider style={{ backgroundColor: '#505251' }} />
+        {/* History > Action List */}
         <List>
-          {['Shout feed', 'Send shout', 'History'].map((text, index) => (
+          {['Shout', 'Feed', 'History'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -433,7 +435,155 @@ export default function MiniDrawer() {
         </List>
         <Divider style={{ backgroundColor: '#505251' }} />
         <List>
-          {['Inbox', 'Notification settings', 'Users list'].map(
+          {['Inbox', 'Reports'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 40,
+                  height: 40,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                >
+                  {icons[text]}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                  primaryTypographyProps={{
+                    fontSize: 15,
+                    fontWeight: 'normal',
+                    letterSpacing: 0,
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Faulty scopes'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 40,
+                  height: 40,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                >
+                  {icons[text]}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                  primaryTypographyProps={{
+                    fontSize: 15,
+                    fontWeight: 'normal',
+                    letterSpacing: 0,
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Scan&Go dashboard', 'Scan&Go reports'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 40,
+                  height: 40,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                >
+                  {icons[text]}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                  primaryTypographyProps={{
+                    fontSize: 15,
+                    letterSpacing: 0,
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {[
+            'SharpSmart dashboard',
+            'SharpSmart stock',
+            'SharpSmart stock history',
+            'SharpSmart reports',
+          ].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 40,
+                  height: 40,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                >
+                  {icons[text]}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                  primaryTypographyProps={{
+                    fontSize: 15,
+                    fontWeight: 'normal',
+                    letterSpacing: 0,
+                  }}
+                  style={{ color: '#B1B0B0' }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Bulk update', 'Notification settings', 'Users list'].map(
             (text, index) => (
               <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
@@ -468,153 +618,6 @@ export default function MiniDrawer() {
               </ListItem>
             )
           )}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Shout reports', 'Collection reports', 'SharpSmart reports'].map(
-            (text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                    style={{ color: '#B1B0B0' }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      letterSpacing: 0,
-                    }}
-                    style={{ color: '#B1B0B0' }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            )
-          )}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Faulty scopes', 'Scan&Go Collections'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    fontWeight: 'normal',
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['SharpSmart dashboard', 'Bin stock', 'Bin stock history'].map(
-            (text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                    style={{ color: '#B1B0B0' }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
-                    }}
-                    style={{ color: '#B1B0B0' }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            )
-          )}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Bulk update'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    fontWeight: 'normal',
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
         </List>
       </Drawer>
 
