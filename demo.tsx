@@ -363,6 +363,7 @@ const List = styled(MUIList)({
     color: '#B1B0B0',
   }, // selected and (selected + hover) states
   '&& .Mui-selected, && .Mui-selected:hover': {
+    backgroundColor: '#1D2220',
     '&, & .MuiListItemIcon-root': {
       color: '#17C78A',
     },
