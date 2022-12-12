@@ -685,7 +685,7 @@ export default function MiniDrawer() {
           {[
             'SharpSmart dashboard',
             'SharpSmart stock',
-            'SharpSmart stock history',
+            'SharpSmart history',
             'SharpSmart reports',
           ].map((text, index) => (
             <Tooltip
