@@ -244,7 +244,7 @@ const icons = {
   'Scan&Go dashboard': <SpaceDashboardIcon />,
   'SharpSmart dashboard': <SpaceDashboardIcon />,
   'SharpSmart stock': <DatasetIcon />,
-  'SharpSmart stock history': <HistoryIcon />,
+  'SharpSmart history': <HistoryIcon />,
   'Bulk update': <BulkUpdateIcon />,
   'Visitor bookings': <SpaceDashboardIcon />,
   'NPS dashboard': <SpaceDashboardIcon />,
