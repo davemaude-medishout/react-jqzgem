@@ -20,6 +20,7 @@ import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
 import NotificationsOffOutlinedIcon from '@mui/icons-material/NotificationsOffOutlined';
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
+import DatasetIcon from '@mui/icons-material/DatasetOutlined';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -169,6 +170,23 @@ const SharpSmartDashboardIcon = () => {
   );
 };
 
+const SpaceDashboardIcon = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 19V5h6v14H5zm14 0h-6v-7h6v7zm0-9h-6V5h6v5z"
+      />
+    </svg>
+  );
+};
+
 const SharpSmartStockIcon = () => {
   return (
     <svg
@@ -211,13 +229,13 @@ const icons = {
   'Notification settings': <NotificationsOffOutlinedIcon />,
   'Users list': <SupervisorAccountOutlinedIcon />,
   Reports: <FileOpenOutlinedIcon />,
-  'Scan&Go reports': <CollectionReportsIcon />,
-  'SharpSmart reports': <SharpSmartReportsIcon />,
+  'Scan&Go reports': <FileOpenOutlinedIcon />,
+  'SharpSmart reports': <FileOpenOutlinedIcon />,
   'Faulty scopes': <FaultyScopeIcon />,
-  'Scan&Go dashboard': <CollectionsIcon />,
-  'SharpSmart dashboard': <SharpSmartDashboardIcon />,
-  'SharpSmart stock': <SharpSmartStockIcon />,
-  'SharpSmart stock history': <SharpSmartStockHistoryIcon />,
+  'Scan&Go dashboard': <SpaceDashboardIcon />,
+  'SharpSmart dashboard': <SpaceDashboardIcon />,
+  'SharpSmart stock': <DatasetIcon />,
+  'SharpSmart history': <HistoryIcon />,
   'Bulk update': <BulkUpdateIcon />,
 };
 
@@ -545,7 +563,7 @@ export default function MiniDrawer() {
           {[
             'SharpSmart dashboard',
             'SharpSmart stock',
-            'SharpSmart stock history',
+            'SharpSmart history',
             'SharpSmart reports',
           ].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
