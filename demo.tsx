@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
+import MUIList from '@mui/material/List';
+import Tooltip from '@mui/material/Tooltip';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -19,8 +20,14 @@ import HistoryIcon from '@mui/icons-material/History';
 import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
 import NotificationsOffOutlinedIcon from '@mui/icons-material/NotificationsOffOutlined';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import NotificationAddOutlinedIcon from '@mui/icons-material/NotificationAddOutlined';
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
+import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import DatasetIcon from '@mui/icons-material/DatasetOutlined';
+import DynamicFormOutlinedIcon from '@mui/icons-material/DynamicFormOutlined';
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -78,7 +85,9 @@ const FaultyScopeIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M19.6667 5.8126C17.8258 5.8126 16.3333 7.35173 16.3333 9.25008C16.3333 10.6612 17.1587 11.8703 18.3379 12.4001V15.7817C18.3379 18.2417 16.2442 20.2504 13.6712 20.2504C11.1712 20.2504 9.11708 18.3555 9.00875 15.9867C12.0042 15.343 14.3333 12.5715 14.3333 9.21141V2.57235C14.3333 2.08337 13.9938 1.65368 13.53 1.56259L10.9083 1.02065C10.3667 0.907857 9.84417 1.26841 9.735 1.82717L9.6 2.5036C9.49062 3.06219 9.84217 3.60316 10.3837 3.71617L11.6625 3.97652V9.19422C11.6625 11.4664 9.90708 13.3463 7.69875 13.3678C5.47458 13.3892 3.665 11.539 3.665 9.24579L3.66208 3.98086L4.94208 3.71823C5.48375 3.61081 5.83417 3.06726 5.72458 2.50867L5.59583 1.83243C5.49167 1.27384 4.96458 0.912476 4.42292 1.02548L1.80333 1.55829C1.33958 1.65497 1 2.07821 1 2.57235V9.24965C1 12.569 3.29625 15.3512 6.3375 15.9871C6.44583 19.8762 9.69167 23 13.6667 23C17.7083 23 21 19.7615 21 15.7813V12.3997C22.1763 11.8686 23 10.6612 23 9.25223C23 7.35088 21.5083 5.8126 19.6667 5.8126ZM19.6667 10.2813C19.1146 10.2813 18.6667 9.81941 18.6667 9.25008C18.6667 8.68075 19.1125 8.21884 19.6667 8.21884C20.2208 8.21884 20.6667 8.6786 20.6667 9.25008C20.6667 9.82156 20.2208 10.2813 19.6667 10.2813Z"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M11.18 22.9999H11.32V22.9799C13.89 22.9799 16.34 21.9699 18.22 20.1299C20.14 18.2599 21.25 15.6899 21.27 13.0699C21.29 10.3499 20.21 7.73989 18.22 5.72989C16.13 3.60989 13.22 2.37989 10.25 2.37989C10.238 2.37989 10.226 2.38011 10.2141 2.38053C9.85631 1.88883 9.27622 1.56989 8.62001 1.56989H6.66001C6.02841 1.56989 5.46733 1.86536 5.1071 2.32594C4.68882 2.20467 4.58747 1.95722 4.57 1.86989C4.51 1.34989 4.05 0.959892 3.52001 0.999892C2.99001 1.03989 2.58001 1.46989 2.58001 1.99989V4.91989C2.58001 5.43989 2.98001 5.84989 3.49001 5.89989H3.58001V5.88989C4.06001 5.88989 4.48001 5.53989 4.57 5.05989C4.59354 4.95007 4.67245 4.72335 4.99015 4.58725C5.33821 5.14197 5.95521 5.50989 6.66001 5.50989H8.62001C9.40859 5.50989 10.0873 5.04929 10.4023 4.3818C12.7892 4.43184 15.116 5.42632 16.81 7.13989C18.42 8.76989 19.3 10.8699 19.28 13.0599C19.26 15.1499 18.37 17.2099 16.83 18.7099C15.3 20.2099 13.3 21.0399 11.22 20.9899C9.23001 20.9699 7.30001 20.1299 5.92001 18.6999C4.64001 17.3799 3.96001 15.6999 4.00001 13.9499C4.04001 12.2899 4.77001 10.6699 6.00001 9.49989C7.21001 8.34989 8.77001 7.74989 10.39 7.78989C11.91 7.83989 13.38 8.49989 14.42 9.61989C15.36 10.6299 15.84 11.9099 15.79 13.2099C15.74 14.4299 15.18 15.6099 14.25 16.4499C13.36 17.2599 12.24 17.6599 11.08 17.5999C10.01 17.5399 9.00001 17.0499 8.30001 16.2499C7.70001 15.5599 7.4 14.6999 7.47001 13.8399C7.53 13.0499 7.92001 12.3099 8.54001 11.7999C9.10001 11.3399 9.79001 11.1299 10.48 11.1999C11.03 11.2599 11.52 10.8599 11.58 10.3099C11.64 9.75989 11.24 9.26989 10.69 9.20989C9.46001 9.06989 8.24001 9.44989 7.26001 10.2599C6.23001 11.1199 5.58001 12.3599 5.47001 13.6799C5.36001 15.0799 5.83001 16.4599 6.79001 17.5599C7.84 18.7599 9.36001 19.4999 10.96 19.5899C12.66 19.6899 14.3 19.0999 15.59 17.9299C16.91 16.7299 17.72 15.0399 17.79 13.2899C17.87 11.4499 17.2 9.65989 15.89 8.25989C14.49 6.75989 12.51 5.85989 10.45 5.79989C8.29001 5.72989 6.22001 6.53989 4.62001 8.05989C3.00001 9.58989 2.05001 11.7299 2.00001 13.9099C1.95001 16.1899 2.83001 18.3899 4.47001 20.0899C6.22001 21.9099 8.67001 22.9699 11.18 22.9999ZM6.19001 3.53989C6.19001 3.27989 6.4 3.06989 6.66001 3.06989H8.62001C8.88001 3.06989 9.09001 3.27989 9.09001 3.53989C9.09001 3.79989 8.88001 4.00989 8.62001 4.00989H6.66001C6.4 4.00989 6.19001 3.79989 6.19001 3.53989Z"
         fill="currentColor"
       />
     </svg>
@@ -235,8 +244,16 @@ const icons = {
   'Scan&Go dashboard': <SpaceDashboardIcon />,
   'SharpSmart dashboard': <SpaceDashboardIcon />,
   'SharpSmart stock': <DatasetIcon />,
-  'SharpSmart history': <HistoryIcon />,
+  'SharpSmart stock history': <HistoryIcon />,
   'Bulk update': <BulkUpdateIcon />,
+  'Visitor bookings': <SpaceDashboardIcon />,
+  'NPS dashboard': <SpaceDashboardIcon />,
+  Channels: <InventoryOutlinedIcon />,
+  'Form builder': <DynamicFormOutlinedIcon />,
+  'Send notification': <NotificationAddOutlinedIcon />,
+  'Notification history': <NotificationsOutlinedIcon />,
+  'User search': <PersonSearchOutlinedIcon />,
+  'User permissions': <AdminPanelSettingsOutlinedIcon />,
 };
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -340,6 +357,25 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+const List = styled(MUIList)({
+  // default state
+  '&& .MuiListItem-root, && .MuiListItemIcon-root': {
+    color: '#B1B0B0',
+  }, // selected and (selected + hover) states
+  '&& .Mui-selected, && .Mui-selected:hover': {
+    '&, & .MuiListItemIcon-root': {
+      color: '#17C78A',
+    },
+  },
+  // hover states
+  '& .MuiListItemButton-root:hover': {
+    backgroundColor: '#505251',
+    '&, & .MuiListItemIcon-root': {
+      color: '#17C78A',
+    },
+  },
+});
+
 export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -418,191 +454,66 @@ export default function MiniDrawer() {
         {/* History > Action List */}
         <List>
           {['Shout', 'Feed', 'History'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{ display: 'block' }}
+                selected={index % 3 === 0 ? 'true' : null}
               >
-                <ListItemIcon
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 40,
+                    height: 40,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
                   }}
-                  style={{ color: '#B1B0B0' }}
                 >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    fontWeight: 'normal',
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {icons[text]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                    primaryTypographyProps={{
+                      fontSize: 15,
+                      fontWeight: 'normal',
+                      letterSpacing: 0,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
           ))}
         </List>
         <Divider style={{ backgroundColor: '#505251' }} />
         <List>
           {['Inbox', 'Reports'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    fontWeight: 'normal',
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Faulty scopes'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    fontWeight: 'normal',
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Scan&Go dashboard', 'Scan&Go reports'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {[
-            'SharpSmart dashboard',
-            'SharpSmart stock',
-            'SharpSmart history',
-            'SharpSmart reports',
-          ].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 40,
-                  height: 40,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                >
-                  {icons[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{ opacity: open ? 1 : 0 }}
-                  primaryTypographyProps={{
-                    fontSize: 15,
-                    fontWeight: 'normal',
-                    letterSpacing: 0,
-                  }}
-                  style={{ color: '#B1B0B0' }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Bulk update', 'Notification settings', 'Users list'].map(
-            (text, index) => (
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
               <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
                   sx={{
@@ -618,7 +529,6 @@ export default function MiniDrawer() {
                       mr: open ? 3 : 'auto',
                       justifyContent: 'center',
                     }}
-                    style={{ color: '#B1B0B0' }}
                   >
                     {icons[text]}
                   </ListItemIcon>
@@ -630,12 +540,295 @@ export default function MiniDrawer() {
                       fontWeight: 'normal',
                       letterSpacing: 0,
                     }}
-                    style={{ color: '#B1B0B0' }}
                   />
                 </ListItemButton>
               </ListItem>
+            </Tooltip>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Faulty scopes'].map((text, index) => (
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 40,
+                    height: 40,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {icons[text]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                    primaryTypographyProps={{
+                      fontSize: 15,
+                      fontWeight: 'normal',
+                      letterSpacing: 0,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Visitor bookings'].map((text, index) => (
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 40,
+                    height: 40,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {icons[text]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                    primaryTypographyProps={{
+                      fontSize: 15,
+                      fontWeight: 'normal',
+                      letterSpacing: 0,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Scan&Go dashboard', 'Scan&Go reports'].map((text, index) => (
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 40,
+                    height: 40,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {icons[text]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                    primaryTypographyProps={{
+                      fontSize: 15,
+                      letterSpacing: 0,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {[
+            'SharpSmart dashboard',
+            'SharpSmart stock',
+            'SharpSmart stock history',
+            'SharpSmart reports',
+          ].map((text, index) => (
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 40,
+                    height: 40,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {icons[text]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                    primaryTypographyProps={{
+                      fontSize: 15,
+                      fontWeight: 'normal',
+                      letterSpacing: 0,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
+          ))}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {['Bulk update', 'Notification settings', 'Users list'].map(
+            (text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
+              >
+                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        fontWeight: 'normal',
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
             )
           )}
+        </List>
+        <Divider style={{ backgroundColor: '#505251' }} />
+        <List>
+          {[
+            'Channels',
+            'Form builder',
+            'Send notification',
+            'Notification history',
+            'User search',
+            'User permissions',
+            'NPS dashboard',
+          ].map((text, index) => (
+            <Tooltip
+              title={
+                open ? null : <Typography fontSize={15}>{text}</Typography>
+              }
+              aria-label={text}
+              placement="right"
+              arrow
+              enterDelay={0}
+              leaveDelay={100}
+            >
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 40,
+                    height: 40,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {icons[text]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                    primaryTypographyProps={{
+                      fontSize: 15,
+                      fontWeight: 'normal',
+                      letterSpacing: 0,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Tooltip>
+          ))}
         </List>
       </Drawer>
 
