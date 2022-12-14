@@ -28,6 +28,7 @@ import DatasetIcon from '@mui/icons-material/DatasetOutlined';
 import DynamicFormOutlinedIcon from '@mui/icons-material/DynamicFormOutlined';
 import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -36,6 +37,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import './src/styles.css';
 
 const drawerWidth = 250;
 
@@ -246,7 +248,7 @@ const icons = {
   'SharpSmart stock': <DatasetIcon />,
   'SharpSmart history': <HistoryIcon />,
   'Bulk update': <BulkUpdateIcon />,
-  'Visitor bookings': <SpaceDashboardIcon />,
+  'Visitor bookings': <EventAvailableOutlinedIcon />,
   'NPS dashboard': <SpaceDashboardIcon />,
   Channels: <InventoryOutlinedIcon />,
   'Form builder': <DynamicFormOutlinedIcon />,
@@ -256,13 +258,14 @@ const icons = {
   'User permissions': <AdminPanelSettingsOutlinedIcon />,
 };
 
+
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
-  overflowX: 'hidden',
+  overflowX: 'hidden'
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
@@ -398,343 +401,116 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        style={{ background: 'white', shadows: 0 }}
-        open={open}
-      >
-        <Toolbar>
-          <IconButton
-            color="#1D2220"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              height: 40,
-              marginRight: 5,
-              marginLeft: -1.5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box
-            sx={{
-              pt: 0.75,
-              ...(open && { display: 'none' }),
-            }}
-          >
+        <AppBar
+          position="fixed"
+          style={{ background: 'white', shadows: 0 }}
+          open={open}
+        >
+          <Toolbar>
+            <IconButton
+              color="#1D2220"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                height: 40,
+                marginRight: 5,
+                marginLeft: -0.9,
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Box
+              sx={{
+                pt: 0.75,
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <img
+                src="https://app.medishout.co.uk/d4982b2b2f87017d8dc7709e48c8716a.svg"
+                height="22"
+              />
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          PaperProps={{ sx: { backgroundColor: '#1D2220', border: 'none' } }}
+          open={open}
+        >
+          <DrawerHeader style={{ backgroundColor: 'white' }}>
             <img
               src="https://app.medishout.co.uk/d4982b2b2f87017d8dc7709e48c8716a.svg"
               height="22"
             />
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        PaperProps={{ sx: { backgroundColor: '#1D2220', border: 'none' } }}
-        open={open}
-      >
-        <DrawerHeader style={{ backgroundColor: 'white' }}>
-          <img
-            src="https://app.medishout.co.uk/d4982b2b2f87017d8dc7709e48c8716a.svg"
-            height="22"
-          />
-          <IconButton onClick={handleDrawerClose} style={{ color: '#B1B0B0' }}>
-            {theme.direction === 'rtl' ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        {/* History > Action List */}
-        <List>
-          {['Shout', 'Feed', 'History'].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
+            <IconButton
+              onClick={handleDrawerClose}
+              style={{ color: '#B1B0B0' }}
             >
-              <ListItem
-                key={text}
-                disablePadding
-                sx={{ display: 'block' }}
-                selected={index % 3 === 0 ? 'true' : null}
+              {theme.direction === 'rtl' ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          {/* History > Action List */}
+          <List>
+            {['Shout', 'Feed', 'History'].map((text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
               >
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
+                <ListItem
+                  key={text}
+                  disablePadding
+                  sx={{ display: 'block' }}
+                  selected={index % 3 === 0 ? 'true' : null}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
                     }}
                   >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Inbox', 'Reports'].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
-            >
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Faulty scopes'].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
-            >
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Visitor bookings'].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
-            >
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Scan&Go dashboard', 'Scan&Go reports'].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
-            >
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      letterSpacing: 0,
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {[
-            'SharpSmart dashboard',
-            'SharpSmart stock',
-            'SharpSmart history',
-            'SharpSmart reports',
-          ].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
-            >
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {['Bulk update', 'Notification settings', 'Users list'].map(
-            (text, index) => (
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        fontWeight: 'normal',
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {['Inbox', 'Reports'].map((text, index) => (
               <Tooltip
                 title={
                   open ? null : <Typography fontSize={15}>{text}</Typography>
@@ -775,126 +551,357 @@ export default function MiniDrawer() {
                   </ListItemButton>
                 </ListItem>
               </Tooltip>
-            )
-          )}
-        </List>
-        <Divider style={{ backgroundColor: '#505251' }} />
-        <List>
-          {[
-            'Channels',
-            'Form builder',
-            'Send notification',
-            'Notification history',
-            'User search',
-            'User permissions',
-            'NPS dashboard',
-          ].map((text, index) => (
-            <Tooltip
-              title={
-                open ? null : <Typography fontSize={15}>{text}</Typography>
-              }
-              aria-label={text}
-              placement="right"
-              arrow
-              enterDelay={0}
-              leaveDelay={100}
-            >
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 40,
-                    height: 40,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
+            ))}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {['Faulty scopes'].map((text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
+              >
+                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
                     }}
                   >
-                    {icons[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: 'normal',
-                      letterSpacing: 0,
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        fontWeight: 'normal',
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {['Visitor bookings'].map((text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
+              >
+                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
                     }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
-        </List>
-      </Drawer>
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        fontWeight: 'normal',
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {['Scan&Go dashboard', 'Scan&Go reports'].map((text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
+              >
+                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {[
+              'SharpSmart dashboard',
+              'SharpSmart stock',
+              'SharpSmart history',
+              'SharpSmart reports',
+            ].map((text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
+              >
+                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        fontWeight: 'normal',
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {['Bulk update', 'Notification settings', 'Users list'].map(
+              (text, index) => (
+                <Tooltip
+                  title={
+                    open ? null : <Typography fontSize={15}>{text}</Typography>
+                  }
+                  aria-label={text}
+                  placement="right"
+                  arrow
+                  enterDelay={0}
+                  leaveDelay={100}
+                >
+                  <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                    <ListItemButton
+                      sx={{
+                        minHeight: 40,
+                        height: 40,
+                        justifyContent: open ? 'initial' : 'center',
+                        px: 2.5,
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : 'auto',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        {icons[text]}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={text}
+                        sx={{ opacity: open ? 1 : 0 }}
+                        primaryTypographyProps={{
+                          fontSize: 15,
+                          fontWeight: 'normal',
+                          letterSpacing: 0,
+                        }}
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                </Tooltip>
+              )
+            )}
+          </List>
+          <Divider style={{ backgroundColor: '#505251' }} />
+          <List>
+            {[
+              'Channels',
+              'Form builder',
+              'Send notification',
+              'Notification history',
+              'User search',
+              'User permissions',
+              'NPS dashboard',
+            ].map((text, index) => (
+              <Tooltip
+                title={
+                  open ? null : <Typography fontSize={15}>{text}</Typography>
+                }
+                aria-label={text}
+                placement="right"
+                arrow
+                enterDelay={0}
+                leaveDelay={100}
+              >
+                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 40,
+                      height: 40,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {icons[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{
+                        fontSize: 15,
+                        fontWeight: 'normal',
+                        letterSpacing: 0,
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+        </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, pt: 1.5 }}>
-        <DrawerHeader />
-        <Box sx={{ mb: 1, px: 3 }}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link
-              underline="hover"
-              sx={{ display: 'flex', alignItems: 'center' }}
-              color="inherit"
-              href="/"
-            >
-              <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-            </Link>
-            <Link
-              underline="hover"
-              sx={{ display: 'flex', alignItems: 'center' }}
-              color="inherit"
-              href="/material-ui/getting-started/installation/"
-            >
-              Core
-            </Link>
-            <Typography
-              sx={{ display: 'flex', alignItems: 'center' }}
-              color="text.primary"
-            >
-              Breadcrumb
+        <Box component="main" sx={{ flexGrow: 1, pt: 1.5 }}>
+          <DrawerHeader />
+          <Box sx={{ mb: 1, px: 3 }}>
+            <Breadcrumbs aria-label="breadcrumb">
+              <Link
+                underline="hover"
+                sx={{ display: 'flex', alignItems: 'center' }}
+                color="inherit"
+                href="/"
+              >
+                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              </Link>
+              <Link
+                underline="hover"
+                sx={{ display: 'flex', alignItems: 'center' }}
+                color="inherit"
+                href="/material-ui/getting-started/installation/"
+              >
+                Core
+              </Link>
+              <Typography
+                sx={{ display: 'flex', alignItems: 'center' }}
+                color="text.primary"
+              >
+                Breadcrumb
+              </Typography>
+            </Breadcrumbs>
+          </Box>
+          <Divider />
+          <Box sx={{ mt: 3, px: 3 }}>
+            <Typography paragraph>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Rhoncus dolor purus non enim praesent elementum facilisis leo vel.
+              Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+              gravida rutrum quisque non tellus. Convallis convallis tellus id
+              interdum velit laoreet id donec ultrices. Odio morbi quis commodo
+              odio aenean sed adipiscing. Amet nisl suscipit adipiscing bibendum
+              est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+              Metus vulputate eu scelerisque felis imperdiet proin fermentum
+              leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt
+              lobortis feugiat vivamus at augue. At augue eget arcu dictum
+              varius duis at consectetur lorem. Velit sed ullamcorper morbi
+              tincidunt. Lorem donec massa sapien faucibus et molestie ac.
             </Typography>
-          </Breadcrumbs>
-        </Box>
-        <Divider />
-        <Box sx={{ mt: 3, px: 3 }}>
-          <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </Typography>
-          <Typography paragraph>
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-            ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-            elementum integer enim neque volutpat ac tincidunt. Ornare
-            suspendisse sed nisi lacus sed viverra tellus. Purus sit amet
-            volutpat consequat mauris. Elementum eu facilisis sed odio morbi.
-            Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt
-            ornare massa eget egestas purus viverra accumsan in. In hendrerit
-            gravida rutrum quisque non tellus orci ac. Pellentesque nec nam
-            aliquam sem et tortor. Habitant morbi tristique senectus et.
-            Adipiscing elit duis tristique sollicitudin nibh sit. Ornare aenean
-            euismod elementum nisi quis eleifend. Commodo viverra maecenas
-            accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam
-            ultrices sagittis orci a.
-          </Typography>
+            <Typography paragraph>
+              Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
+              ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
+              elementum integer enim neque volutpat ac tincidunt. Ornare
+              suspendisse sed nisi lacus sed viverra tellus. Purus sit amet
+              volutpat consequat mauris. Elementum eu facilisis sed odio morbi.
+              Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt
+              ornare massa eget egestas purus viverra accumsan in. In hendrerit
+              gravida rutrum quisque non tellus orci ac. Pellentesque nec nam
+              aliquam sem et tortor. Habitant morbi tristique senectus et.
+              Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
+              aenean euismod elementum nisi quis eleifend. Commodo viverra
+              maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
+              aliquam ultrices sagittis orci a.
+            </Typography>
+          </Box>
         </Box>
       </Box>
-    </Box>
+
   );
 }
